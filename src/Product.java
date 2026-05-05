@@ -1,9 +1,10 @@
 import java.util.Objects;
+
 public class Product {
-    int id;
-    String name;
-    int price;
-    String category;
+    private final int id;
+    private final String name;
+    private final int price;
+    private final String category;
 
     public Product(int id, String name, int price, String category) {
         this.id = id;
@@ -19,10 +20,11 @@ public class Product {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; //Проверка, не ссылаются ли переменные на один и тот же объект.
+        if (this == o)
+            return true; //Проверка, не ссылаются ли переменные на один и тот же объект.
         if (o == null || getClass() != o.getClass()) return false;//Проверка на null и совпадение классов
         Product product = (Product) o; // Кастинг
-        return id == product.id && Objects.equals(category, product.category);//Сравнение конкретных полей
+        return id == product.id && Objects.equals(product.category, product.category);//Сравнение конкретных полей
     }
 }
 
